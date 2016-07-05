@@ -1,0 +1,6 @@
+.DS_Store
+build/
+.idea/
+.gradle
+cassandra-client-2.1.*
+application.log
