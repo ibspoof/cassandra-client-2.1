@@ -4,11 +4,12 @@ The [DataStax C* driver](https://github.com/datastax/java-driver) can hide it's 
 
 ### Main Application
 `/src/main/java/com/github/ibspoof/connection/App.run()` function contains the fallback steps which are:
+
 1. Write to localDC w/ EACH_QUORUM
-1. Fallback to localDC w/ LOCAL_QUORUM
-1. Fallback to remoteDC w/ LOCAL_QUORUM
+2. Fallback to localDC w/ LOCAL_QUORUM
+3. Fallback to remoteDC w/ LOCAL_QUORUM
 
 Each of the above is logged to enable tracking of the codes decision tree.
  
 ### Single Connection Example
-Additionally a fully documented Single connection example is included in the `/src/main/java/com/github/ibspoof/connection/examples` package.
+Additionally a fully documented Single connection example is included in the `/src/main/java/com/github/ibspoof/connection/examples` package.``
