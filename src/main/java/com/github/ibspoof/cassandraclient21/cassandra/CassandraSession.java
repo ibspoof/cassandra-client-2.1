@@ -130,6 +130,11 @@ public class CassandraSession {
            - onWriteTimeout = retry query same host
            - onUnavailable = tryNextHost
            - onConnectionTimeout = tryNextHost
+
+           Logging classes are to be included in your local logback.xml connection:
+            {@link com.datastax.driver.core.policies.RetryPolicy.RetryDecision.Type#RETRY RETRY} and
+            {@link com.datastax.driver.core.policies.RetryPolicy.RetryDecision.Type#IGNORE IGNORE} decisions (since
+            {@link com.datastax.driver.core.policies.RetryPolicy.RetryDecision.Type#RETHROW RETHROW} decisions
          */
         clusterBuilder.withRetryPolicy(new LoggingRetryPolicy(DefaultRetryPolicy.INSTANCE));
 
