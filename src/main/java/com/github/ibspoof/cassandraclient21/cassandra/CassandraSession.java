@@ -136,7 +136,13 @@ public class CassandraSession {
             {@link com.datastax.driver.core.policies.RetryPolicy.RetryDecision.Type#IGNORE IGNORE} decisions (since
             {@link com.datastax.driver.core.policies.RetryPolicy.RetryDecision.Type#RETHROW RETHROW} decisions
          */
-        clusterBuilder.withRetryPolicy(new LoggingRetryPolicy(DefaultRetryPolicy.INSTANCE));
+//        clusterBuilder.withRetryPolicy(new LoggingRetryPolicy(DefaultRetryPolicy.INSTANCE));
+
+
+        /*
+         * Bubble up all exceptions from the driver to the app to chose what direction/action should be taken
+         */
+        clusterBuilder.withRetryPolicy(FallthroughRetryPolicy.INSTANCE);
 
 
         /*
